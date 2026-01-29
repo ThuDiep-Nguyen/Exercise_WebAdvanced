@@ -1,0 +1,32 @@
+<p>ptb2 works!</p>
+<table>
+    <tbody> 
+        <tr>
+            <td>A:</td>
+            <td>
+                <input type="text" [(ngModel)]="hsa">
+            </td>
+        </tr>
+        <tr>
+            <td>B:</td>
+            <td>
+                <input type="text" [(ngModel)]="hsb">
+            </td>
+        </tr>
+        <tr>
+            <td>C:</td>
+            <td>
+                <input type="text" [(ngModel)]="hsc">
+            </td>
+        </tr>
+        <tr>
+            <td>Result:</td>
+            <td>{{result}}</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button (click)="get_solution()"> Solution </button>
+            </td>
+        </tr>
+    </tbody>
+</table>

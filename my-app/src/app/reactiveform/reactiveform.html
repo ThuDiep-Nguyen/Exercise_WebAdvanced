@@ -1,0 +1,128 @@
+<div class="container-fluid">
+  <form [formGroup]="regForm" (ngSubmit)="onSubmit()">
+    <h3 class="text-center">{{"Đăng ký khóa học" | uppercase}}</h3>
+    
+    <!-- Tên -->
+    <div class="mb-3">
+      <label for="name">Tên:</label>
+      <input 
+        type="text" 
+        id="name" 
+        class="form-control"
+        [class.is-invalid]="name?.invalid && name?.touched"
+        placeholder="Nhập tên" 
+        formControlName="name">
+      
+      <small 
+        class="text-danger" 
+        *ngIf="name?.errors?.['required'] && name?.touched">
+        Tên là bắt buộc
+      </small>
+      <small 
+        class="text-danger" 
+        *ngIf="name?.errors?.['minlength'] && name?.touched">
+        Tên phải có ít nhất 3 ký tự
+      </small>
+      <small 
+        class="text-danger" 
+        *ngIf="name?.errors?.['nameNotMatch'] && name?.touched">
+        Tên không được chứa ký tự đặc biệt
+      </small>
+    </div>
+
+    <!-- Email -->
+    <div class="mb-3">
+      <label for="email">Email:</label>
+      <input 
+        type="email" 
+        id="email" 
+        class="form-control"
+        [class.is-invalid]="email?.invalid && email?.touched"
+        placeholder="Nhập địa chỉ email" 
+        formControlName="email">
+      
+      <small 
+        class="text-danger" 
+        *ngIf="email?.errors?.['required'] && email?.touched">
+        Bạn chưa nhập email
+      </small>
+      <small 
+        class="text-danger" 
+        *ngIf="email?.errors?.['email'] && email?.touched">
+        Email không hợp lệ
+      </small>
+    </div>
+
+    <!-- Password -->
+    <div class="mb-3">
+      <label for="password">Mật khẩu:</label>
+      <input 
+        type="password" 
+        id="password" 
+        class="form-control"
+        [class.is-invalid]="password?.invalid && password?.touched"
+        formControlName="password">
+      
+      <small 
+        class="text-danger" 
+        *ngIf="password?.errors?.['required'] && password?.touched">
+        Mật khẩu là bắt buộc
+      </small>
+      <small 
+        class="text-danger" 
+        *ngIf="password?.errors?.['minlength'] && password?.touched">
+        Mật khẩu phải có ít nhất 6 ký tự
+      </small>
+    </div>
+
+    <!-- Confirm Password -->
+    <div class="mb-3">
+      <label for="retype_password">Nhập lại mật khẩu:</label>
+      <input 
+        type="password" 
+        id="retype_password" 
+        class="form-control"
+        [class.is-invalid]="(confirmPass?.invalid && confirmPass?.touched) || regForm.errors?.['misMatch']"
+        formControlName="confirmPass">
+      
+      <small 
+        class="text-danger" 
+        *ngIf="confirmPass?.errors?.['required'] && confirmPass?.touched">
+        Vui lòng nhập lại mật khẩu
+      </small>
+      <small 
+        class="text-danger" 
+        *ngIf="regForm.errors?.['misMatch'] && confirmPass?.touched">
+        Mật khẩu không trùng khớp
+      </small>
+    </div>
+
+    <!-- Buttons -->
+    <div class="mb-3 text-end">
+      <button 
+        class="btn btn-primary" 
+        type="submit"
+        [disabled]="regForm.invalid">
+        Đăng ký
+      </button>
+      <button 
+        class="btn btn-secondary ms-2" 
+        type="button" 
+        (click)="setDefaultValues()">
+        Default values
+      </button>
+    </div>
+  </form>
+
+  <!-- Debug Output -->
+  <div class="debug-section">
+    <h5>Form Value:</h5>
+    <pre>{{regForm.value | json}}</pre>
+    
+    <h5>Form Status:</h5>
+    <p>Valid: {{regForm.valid}}</p>
+    <p>Invalid: {{regForm.invalid}}</p>
+    <p>Touched: {{regForm.touched}}</p>
+    <p>Dirty: {{regForm.dirty}}</p>
+  </div>
+</div>

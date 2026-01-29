@@ -1,0 +1,23 @@
+<p>learnbinding works!</p>
+<table>
+    <tbody> 
+        <tr>
+            <td> Student ID:</td>
+            <td>
+                <input type="text" value="{{student_id}}">
+            </td>
+        </tr>
+        <tr>
+            <td> Student Name:</td>
+            <td>
+                <input type="text" value="{{student_name}}">
+            </td>
+        </tr>
+        <tr>
+            <td [style]="red_text_style"> Address: </td>
+            <td [style]="red_text_style">
+                {{student_address}}
+            </td>
+        </tr>
+    </tbody>
+</table>

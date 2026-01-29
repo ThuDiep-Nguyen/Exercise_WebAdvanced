@@ -1,0 +1,16 @@
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>SERVICE</th>
+            <th>PRICE</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let s of services" style="border-bottom: 1px dashed #999; padding: 10px 0;">
+            <td>{{s.id}}</td>
+            <td>{{s.name}}</td>
+            <td>  {{ s.price > 0 ? (s.price ) : 'Miễn phí' }} </td>
+        </tr>
+    </tbody>
+</table>

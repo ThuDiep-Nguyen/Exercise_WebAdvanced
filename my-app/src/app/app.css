@@ -1,0 +1,66 @@
+*{
+ margin:0;
+ padding:0;
+}
+#container
+{ border:1px solid blue;
+background:gray;
+float:left;
+top: 60px;
+text-indent:0px;
+width: 100%;
+}
+#container ul{
+float:left;
+list-style:none
+}
+#container ul li{
+position:relative;
+float:left;
+}
+#container ul li a
+{
+display:block;
+color:black;
+font-weight:bold;
+text-decoration:none;
+padding:.3em 6px;
+}
+#container li a:hover
+{color:white;background:orange;
+}
+#container li ul
+{position:absolute;
+display:none;
+width:10em
+}
+#container li:hover ul {
+ display:block;
+}
+#container ul li ul li{
+ width:100%;
+ border:1px solid green
+}
+/* Đảm bảo thẻ li cha có vị trí tương đối để định vị con */
+#container ul li ul li.has-child {
+    position: relative;
+}
+
+/* Định dạng cho menu cấp 3 (menu con của EX19) */
+#container ul li ul li .sub-menu {
+    display: none;       /* Ẩn mặc định */
+    position: absolute;  /* Định vị tuyệt đối */
+    left: 100%;          /* Đẩy sang bên phải 100% so với thẻ cha */
+    top: 0;              /* Canh ngang hàng với EX19 */
+    width: 200px;        /* Độ rộng tùy chỉnh */
+    background-color: white; /* Màu nền để không bị trong suốt đè chữ */
+    border: 1px solid #ccc;  /* Viền cho dễ nhìn */
+    padding: 0;
+    list-style: none;
+    z-index: 999;        /* Đảm bảo nó nổi lên trên cùng */
+}
+
+/* Khi di chuột vào EX19 thì hiện menu con */
+#container ul li ul li.has-child:hover > .sub-menu {
+    display: block;
+}

@@ -1,0 +1,124 @@
+<div class="container-fluid">
+  <form #registerForm="ngForm" (ngSubmit)="onSubmit()">
+    <h3 class="text-center">Đăng ký khóa học</h3>
+    
+    <!-- Tên -->
+    <div class="mb-3">
+      <label for="name">Tên:</label>
+      <div class="input-wrapper">
+        <input 
+          type="text" 
+          class="form-control" 
+          [class.is-invalid]="name.invalid && name.touched"
+          name="name" 
+          id="name"
+          placeholder="Nhập tên" 
+          [(ngModel)]="studentModel.name"
+          #name="ngModel"
+          required>
+        <span class="error-icon" *ngIf="name.invalid && name.touched">⚠</span>
+      </div>
+      <small class="text-danger" *ngIf="name.invalid && name.touched">Bạn chưa nhập tên</small>
+    </div>
+
+    <!-- Email -->
+    <div class="mb-3">
+      <label for="email">Email:</label>
+      <input 
+        type="email" 
+        class="form-control"
+        [class.is-invalid]="email.invalid && email.touched"
+        id="email" 
+        name="email"
+        placeholder="Nhập địa chỉ email" 
+        [(ngModel)]="studentModel.email"
+        #email="ngModel"
+        required
+        email>
+      <small class="text-danger" *ngIf="email.invalid && email.touched && email.errors?.['required']">Bạn chưa nhập email</small>
+      <small class="text-danger" *ngIf="email.invalid && email.touched && email.errors?.['email']">Email không hợp lệ</small>
+    </div>
+
+    <!-- Điện thoại -->
+    <div class="mb-3">
+      <label for="phone">Điện thoại:</label>
+      <input 
+        type="tel" 
+        class="form-control"
+        [class.is-invalid]="phone.invalid && phone.touched"
+        name="phone" 
+        id="phone"
+        [(ngModel)]="studentModel.phone"
+        #phone="ngModel"
+        required
+        pattern="[0-9]{10}">
+      <small class="text-danger" *ngIf="phone.invalid && phone.touched">Số điện thoại phải có 10 chữ số</small>
+    </div>
+
+    <!-- Chọn khóa học -->
+    <div class="mb-3">
+      <label for="course">Chọn khóa học:</label>
+      <div class="select-wrapper">
+        <select 
+          class="form-control" 
+          [class.is-invalid]="(course.invalid && course.touched) || (course.touched && studentModel.course === '')"
+          id="course"
+          name="course"
+          [(ngModel)]="studentModel.course"
+          #course="ngModel"
+          required>
+          <option value="">-------------</option>
+          <option *ngFor="let c of courses" [value]="c">{{c}}</option>
+        </select>
+        <span class="error-icon" *ngIf="(course.invalid && course.touched) || (course.touched && studentModel.course === '')">⚠</span>
+      </div>
+      <small class="text-danger" *ngIf="(course.invalid && course.touched) || (course.touched && studentModel.course === '')">Vui lòng chọn khóa học</small>
+    </div>
+
+    <!-- Chọn ca học -->
+    <div class="mb-3">
+      <label>Chọn ca học:</label>
+      <div>
+        <input 
+          type="radio" 
+          name="shift" 
+          id="shiftMorning"
+          value="Sáng"
+          [(ngModel)]="studentModel.shift">
+        <label for="shiftMorning" class="radio-label">Sáng</label>
+        
+        <input 
+          type="radio" 
+          name="shift" 
+          id="shiftEvening"
+          value="Tối"
+          [(ngModel)]="studentModel.shift"
+          checked>
+        <label for="shiftEvening" class="radio-label">Tối</label>
+      </div>
+    </div>
+
+    <!-- Đồng ý với điều khoản -->
+    <div class="mb-3">
+      <label class="checkbox-label">
+        <input 
+          type="checkbox" 
+          name="agree" 
+          id="agree"
+          [(ngModel)]="studentModel.agreeTerms"
+          #agree="ngModel">
+        <span class="checkbox-text">Đồng ý với điều khoản</span>
+      </label>
+    </div>
+
+    <!-- Submit button -->
+    <button 
+      type="submit" 
+      class="btn btn-primary"
+      [disabled]="registerForm.invalid || studentModel.course === '' || !studentModel.agreeTerms">
+      Submit
+    </button>
+  </form>
+  <!-- Debug output -->
+  <p class="debug-output">{{registerForm.value | json}}</p>
+</div>

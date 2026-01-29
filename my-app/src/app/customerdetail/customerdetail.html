@@ -1,0 +1,24 @@
+<p>customerdetail works!</p>
+ID: <input type="text" #customerid>
+<button (click)="search_customer_by_id(customerid.value)"> Search </button>
+
+<table border="1">
+    <tbody>
+        <tr>
+            <td> Customer ID:</td>
+            <td> {{ selectedCustomer?.id }} </td>
+        </tr>
+        <tr>
+            <td> Customer Name:</td>
+            <td> {{ selectedCustomer?.name }} </td>
+        </tr>
+        <tr>
+            <td> Customer Age:</td>
+            <td> 
+                <span style="color: red; font-weight: bold;">
+                    {{ selectedCustomer?.age }}
+                </span>
+            </td>
+        </tr>
+    </tbody>
+</table>

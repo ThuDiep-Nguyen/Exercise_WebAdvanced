@@ -1,0 +1,35 @@
+<p>ex14 works!</p>
+<div class="container">  
+  <table border="1" class="cate-table">
+    <ng-container *ngFor="let cat of categories; let isFirst = first">
+      <thead *ngIf="isFirst">
+        <tr>
+          <th colspan="2">Ma Danh Muc</th>
+          <th colspan="2">Ten Danh Muc</th>
+        </tr>
+      </thead>
+      
+      <tbody>
+        <tr>
+          <td colspan="2">{{ cat.Cateid }}</td> 
+          <td colspan="2">{{ cat.CateName }}</td>
+        </tr>
+        <tr>
+          <th>Ma San Pham</th>
+          <th>Ten San Pham</th>
+          <th>Gia San Pham</th>
+          <th>Picture</th>
+        </tr>
+        
+        <tr *ngFor="let p of cat.Products">
+          <td>{{ p.ProductId }}</td>
+          <td>{{ p.ProductName }}</td>
+          <td>{{ p.Price }}</td>
+          <td>
+            <img [src]="p.Image" width="50" height="auto" alt="{{ p.ProductName }}">
+          </td>
+        </tr>
+      </tbody>
+    </ng-container>
+  </table>
+</div>

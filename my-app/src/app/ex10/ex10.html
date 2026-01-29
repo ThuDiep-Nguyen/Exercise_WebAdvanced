@@ -1,0 +1,59 @@
+<p>ex10 works!</p>
+<div class="container">
+  <h3>Chuyển đổi Dương lịch sang Âm lịch</h3>
+
+  <div class="input-group">
+    <div class="input-item">
+      <label>Ngày</label>
+      <select [(ngModel)]="selectedDay">
+        <option *ngFor="let d of days" [ngValue]="d">{{ d }}</option>
+      </select>
+    </div>
+
+    <div class="input-item">
+      <label>Tháng</label>
+      <select [(ngModel)]="selectedMonth">
+        <option *ngFor="let m of months" [ngValue]="m">{{ m }}</option>
+      </select>
+    </div>
+
+    <div class="input-item">
+      <label>Năm</label>
+      <select [(ngModel)]="selectedYear">
+        <option *ngFor="let y of years" [ngValue]="y">{{ y }}</option>
+      </select>
+    </div>
+  </div>
+
+  <button class="btn-convert" (click)="convert()">Chuyển đổi</button>
+
+  <div class="result-box" *ngIf="result" style="display: block;">
+    <h4 class="result-header">KẾT QUẢ ÂM LỊCH</h4>
+    <table>
+      <tr>
+        <td>Thứ trong tuần:</td>
+        <td class="red-text">{{ result.thu }}</td>
+      </tr>
+      <tr>
+        <td>Dương lịch:</td>
+        <td>{{ result.duongLich }}</td>
+      </tr>
+      <tr>
+        <td>Âm lịch:</td>
+        <td class="red-text">{{ result.amLich }}</td>
+      </tr>
+      <tr>
+        <td>Năm:</td>
+        <td class="green-text">{{ result.namAm }}</td>
+      </tr>
+      <tr>
+        <td>Tháng:</td>
+        <td>{{ result.thangAm }}</td>
+      </tr>
+      <tr>
+        <td>Ngày:</td>
+        <td>{{ result.ngayAm }}</td>
+      </tr>
+    </table>
+  </div>
+</div>
