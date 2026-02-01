@@ -1,1 +1,31 @@
-<p>ex28 works!</p>
+<div class="container">
+    <h3 class="text-center text-white bg-secondary p-3">Exercise 28: Bitcoin Price Index in Real-time</h3>
+    <div *ngIf="errMessage" class="alert alert-danger">Error: {{errMessage}}</div>
+
+    <div *ngIf="bitcoinData" class="card shadow p-4">
+        <h5 class="text-primary">{{bitcoinData.chartName}}</h5>
+        <p><strong>Updated:</strong> {{bitcoinData.time?.updated}}</p>
+        <p class="text-muted"><small>{{bitcoinData.disclaimer}}</small></p>
+
+        <table class="table table-hover table-bordered mt-3">
+            <thead class="table-info">
+                <tr>
+                    <th>Code</th>
+                    <th>Symbol</th>
+                    <th>Description</th>
+                    <th>Rate</th>
+                    <th>Rate (Float)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of bitcoinData.bpi | keyvalue">
+                    <td><strong>{{item.value.code}}</strong></td>
+                    <td [innerHTML]="item.value.symbol"></td>
+                    <td>{{item.value.description}}</td>
+                    <td class="text-success fw-bold">{{item.value.rate}}</td>
+                    <td>{{item.value.rate_float}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

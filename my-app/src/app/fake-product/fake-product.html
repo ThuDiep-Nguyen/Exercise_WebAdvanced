@@ -18,8 +18,8 @@
             <td>{{item.price}}</td>
             <td>{{item.description}}</td>
             <td>{{item.category}}</td>
-            <td><img src="{{item.image}}" width="250" height="250" ></td>
-            <td>{{item.rating.rate}}</td>
+            <td><img [src]="item.image" width="250" height="250" ></td>
+            <td>{{item.rating?.rate}}</td>
         </tr>
     </tbody>
 </table>

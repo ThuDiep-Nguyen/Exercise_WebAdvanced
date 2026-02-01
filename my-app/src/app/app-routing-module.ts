@@ -20,6 +20,9 @@ import { ServiceProduct } from './service-product/service-product';
 import { Form } from './form/form';
 import { Reactiveform } from './reactiveform/reactiveform';
 import { Books } from './books/books';
+import { Ex27 } from './ex27/ex27';
+import { Ex28 } from './ex28/ex28';
+import { EX26 } from './ex26/ex26';
 
 
 const routes: Routes = [
@@ -43,7 +46,10 @@ const routes: Routes = [
       { path: 'service-product', component: ServiceProduct }
     ]
   },
-  {path:"ex26",component:FakeProduct},
+  {path:"ex26",component:EX26},
+  // {path:"ex26",component:FakeProduct},
+  {path:"ex27",component:Ex27},
+  {path:"ex28",component:Ex28},
   {path:"form",component:Form},
   {path:"Reactiveform",component: Reactiveform},
   {path:"ex39",component: Books},
