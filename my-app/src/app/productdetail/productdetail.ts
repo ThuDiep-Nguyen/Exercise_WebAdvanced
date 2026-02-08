@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -7,7 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './productdetail.html',
   styleUrl: './productdetail.css',
 })
-export class Productdetail {
+export class Productdetail implements OnInit {
   products=[
     {"id":"p1", "name":"Coca","price":18, "image":"https://cdn.tgdd.vn/Products/Images/2443/76451/bhx/nuoc-ngot-coca-cola-lon-320ml-202304131107525481.jpg"},
     {"id":"p2", "name":"Pepsi","price":15, "image":"https://cdn.tgdd.vn/Products/Images/2443/76467/bhx/nuoc-ngot-pepsi-cola-lon-320ml-202407131656260952.jpg"},
@@ -17,15 +17,20 @@ export class Productdetail {
   ];
 
   product_selected:any
-  constructor(private router:Router,private activeRouter:ActivatedRoute)
+  constructor(private router:Router,private activeRouter:ActivatedRoute, private cd: ChangeDetectorRef)
   {
+  }
+
+  ngOnInit(): void {
     //dùng router để điều hướng
     //dùng activeRouter để nhận điều hướng
-    activeRouter.paramMap.subscribe((param)=>{
+    this.activeRouter.paramMap.subscribe((param)=>{
       let id=param.get("id")
       this.product_selected=this.products.find(p=>p.id==id)
+      this.cd.detectChanges();
     })
   }
+
   goback()
   {
     this.router.navigate(["san-pham-1",{id:this.product_selected.id}])

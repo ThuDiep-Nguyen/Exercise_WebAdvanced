@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CustomerGroup, GroupcustomerService } from '../groupcustomer-service';
 
 @Component({
@@ -10,16 +10,18 @@ import { CustomerGroup, GroupcustomerService } from '../groupcustomer-service';
 export class EX18 implements OnInit {  // Thêm implements OnInit
   customerGroups: CustomerGroup[] = [];
 
-  constructor(private groupService: GroupcustomerService) {}
+  constructor(private groupService: GroupcustomerService, private cd: ChangeDetectorRef) {}
 
   ngOnInit(): void {
     this.groupService.getCustomerGroups().subscribe({
       next: (data) => {
         this.customerGroups = data;
         console.log('Dữ liệu đã tải:', this.customerGroups);
+        this.cd.detectChanges();
       },
       error: (err) => {
         console.error('Lỗi khi tải data:', err);
+        this.cd.detectChanges();
       }
     });
   }

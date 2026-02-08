@@ -1,0 +1,37 @@
+<div class="container">
+    <h2>QUẢN LÝ THÔNG TIN SÁCH</h2>
+    <a routerLink="/ex50/new">Create New</a>
+    <p style="color:red">{{errMessage}}</p>
+    <table border="1" style="width:100%; border-collapse: collapse;">
+        <thead>
+            <tr>
+                <th>Tên sách</th>
+                <th>Giá bán</th>
+                <th>Mô tả</th>
+                <th>Ảnh bìa</th>
+                <th>Ngày cập nhật</th>
+                <th>Số lượng tồn</th>
+                <th>Mã CD</th>
+                <th>Mã NXB</th>
+                <th>Thao tác</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let b of books">
+                <td>{{b.BookName}}</td>
+                <td>{{b.Price}}</td>
+                <td>{{b.Description}}</td>
+                <td><img src="http://localhost:3000/images/{{b.Image}}" width="50"></td>
+                <td>{{b.UpdateDate | date:'dd/MM/yyyy'}}</td>
+                <td>{{b.Quantity}}</td>
+                <td>{{b.CDId}}</td>
+                <td>{{b.PublisherId}}</td>
+                <td>
+                    <a [routerLink]="['/ex50/edit', b.BookId]">Edit</a> |
+                    <a [routerLink]="['/ex50/detail', b.BookId]">Details</a> |
+                    <a href="javascript:void(0)" (click)="deleteBook(b)">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

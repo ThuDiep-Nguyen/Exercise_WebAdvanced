@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef, OnInit } from '@angular/core';
 import { BitcoinService } from '../myservices/bitcoin-service';
 
 @Component({
@@ -7,17 +7,22 @@ import { BitcoinService } from '../myservices/bitcoin-service';
   templateUrl: './ex28.html',
   styleUrl: './ex28.css',
 })
-export class Ex28 {
+export class Ex28 implements OnInit {
   bitcoinData: any;
   errMessage: string = '';
-  constructor(_service: BitcoinService) {
-    _service.getBitcoinData().subscribe({
+  constructor(private _service: BitcoinService, private cd: ChangeDetectorRef) {
+  }
+
+  ngOnInit(): void {
+    this._service.getBitcoinData().subscribe({
       next: (data) => {
         this.bitcoinData = data;
+        this.cd.detectChanges();
       },
       error: (err) => {
         console.error('Bitcoin API Error:', err);
         this.errMessage = err;
+        this.cd.detectChanges();
       },
     });
   }

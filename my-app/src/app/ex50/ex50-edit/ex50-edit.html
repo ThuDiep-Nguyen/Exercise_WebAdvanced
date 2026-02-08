@@ -1,0 +1,48 @@
+<h2>Edit Book</h2>
+<p style="color:red">{{errMessage}}</p>
+<table>
+    <tr>
+        <td>Book ID:</td>
+        <td><input [(ngModel)]="book.BookId" readonly disabled></td>
+    </tr>
+    <tr>
+        <td>Book Name:</td>
+        <td><input [(ngModel)]="book.BookName"></td>
+    </tr>
+    <tr>
+        <td>Price:</td>
+        <td><input [(ngModel)]="book.Price" type="number"></td>
+    </tr>
+    <tr>
+        <td>Description:</td>
+        <td><textarea [(ngModel)]="book.Description"></textarea></td>
+    </tr>
+    <tr>
+        <td>Current Image:</td>
+        <td><img src="http://localhost:3000/images/{{book.Image}}" width="50" *ngIf="book.Image"></td>
+    </tr>
+    <tr>
+        <td>Change Image:</td>
+        <td><input type="file" (change)="onFileSelected($event)"></td>
+    </tr>
+    <tr>
+        <td>Update Date:</td>
+        <td><input [(ngModel)]="book.UpdateDate" type="date"></td>
+    </tr>
+    <tr>
+        <td>Quantity:</td>
+        <td><input [(ngModel)]="book.Quantity" type="number"></td>
+    </tr>
+    <tr>
+        <td>CD ID:</td>
+        <td><input [(ngModel)]="book.CDId"></td>
+    </tr>
+    <tr>
+        <td>Publisher ID:</td>
+        <td><input [(ngModel)]="book.PublisherId"></td>
+    </tr>
+    <tr>
+        <td colspan="2"><button (click)="updateBook()">Update</button></td>
+    </tr>
+</table>
+<a routerLink="/ex50">Return to list</a>

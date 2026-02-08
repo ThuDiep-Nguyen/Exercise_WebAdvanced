@@ -1,0 +1,44 @@
+<h2>Create New Book</h2>
+<p style="color:red">{{errMessage}}</p>
+<table>
+    <tr>
+        <td>Book ID:</td>
+        <td><input [(ngModel)]="book.BookId" placeholder="Book ID"></td>
+    </tr>
+    <tr>
+        <td>Book Name:</td>
+        <td><input [(ngModel)]="book.BookName" placeholder="Book Name"></td>
+    </tr>
+    <tr>
+        <td>Price:</td>
+        <td><input [(ngModel)]="book.Price" type="number" placeholder="Price"></td>
+    </tr>
+    <tr>
+        <td>Description:</td>
+        <td><textarea [(ngModel)]="book.Description" placeholder="Description"></textarea></td>
+    </tr>
+    <tr>
+        <td>Image:</td>
+        <td><input type="file" (change)="onFileSelected($event)"></td>
+    </tr>
+    <tr>
+        <td>Update Date:</td>
+        <td><input [(ngModel)]="book.UpdateDate" type="date"></td>
+    </tr>
+    <tr>
+        <td>Quantity:</td>
+        <td><input [(ngModel)]="book.Quantity" type="number"></td>
+    </tr>
+    <tr>
+        <td>CD ID:</td>
+        <td><input [(ngModel)]="book.CDId"></td>
+    </tr>
+    <tr>
+        <td>Publisher ID:</td>
+        <td><input [(ngModel)]="book.PublisherId"></td>
+    </tr>
+    <tr>
+        <td colspan="2"><button (click)="postBook()">Submit</button></td>
+    </tr>
+</table>
+<a routerLink="/ex50">Return to list</a>

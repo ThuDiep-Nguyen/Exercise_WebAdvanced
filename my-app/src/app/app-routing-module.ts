@@ -23,6 +23,13 @@ import { Books } from './books/books';
 import { Ex27 } from './ex27/ex27';
 import { Ex28 } from './ex28/ex28';
 import { EX26 } from './ex26/ex26';
+import { BookDetail } from './book-detail/book-detail';
+import { NewBook } from './new-book/new-book';
+import { FileUpload } from './file-upload/file-upload';
+import { Ex50 } from './ex50/ex50';
+import { Ex50New } from './ex50/ex50-new/ex50-new';
+import { Ex50Edit } from './ex50/ex50-edit/ex50-edit';
+import { Ex50Detail } from './ex50/ex50-detail/ex50-detail';
 
 
 const routes: Routes = [
@@ -53,6 +60,14 @@ const routes: Routes = [
   {path:"form",component:Form},
   {path:"Reactiveform",component: Reactiveform},
   {path:"ex39",component: Books},
+  {path:"ex41",component: BookDetail},
+  {path:"ex41/:id",component: BookDetail},
+  {path:"ex43",component: NewBook},
+  {path:"ex49",component: FileUpload},
+  {path:"ex50",component: Ex50},
+  {path:"ex50/new",component: Ex50New},
+  {path:"ex50/edit/:id",component: Ex50Edit},
+  {path:"ex50/detail/:id",component: Ex50Detail},
   {path:"**",component:Notfound}
 ];
 

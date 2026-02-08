@@ -1,0 +1,45 @@
+<h2>Book Details</h2>
+<p style="color:red">{{errMessage}}</p>
+<table border="1" style="border-collapse: collapse;">
+    <tr>
+        <td>Book ID</td>
+        <td>{{book.BookId}}</td>
+    </tr>
+    <tr>
+        <td>Book Name</td>
+        <td>{{book.BookName}}</td>
+    </tr>
+    <tr>
+        <td>Price</td>
+        <td>{{book.Price}}</td>
+    </tr>
+    <tr>
+        <td>Description</td>
+        <td>{{book.Description}}</td>
+    </tr>
+    <tr>
+        <td>Image</td>
+        <td>
+            <img src="http://localhost:3000/images/{{book.Image}}" width="200" *ngIf="book.Image">
+        </td>
+    </tr>
+    <tr>
+        <td>Update Date</td>
+        <td>{{book.UpdateDate | date:'dd/MM/yyyy'}}</td>
+    </tr>
+    <tr>
+        <td>Quantity</td>
+        <td>{{book.Quantity}}</td>
+    </tr>
+    <tr>
+        <td>CD ID</td>
+        <td>{{book.CDId}}</td>
+    </tr>
+    <tr>
+        <td>Publisher ID</td>
+        <td>{{book.PublisherId}}</td>
+    </tr>
+</table>
+<br>
+<a routerLink="/ex50">Return to list</a> | 
+<a [routerLink]="['/ex50/edit', book.BookId]">Edit this book</a>
