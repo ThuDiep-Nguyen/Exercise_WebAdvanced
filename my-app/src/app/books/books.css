@@ -1,6 +1,15 @@
-tr:hover {
+tr:hover
+{
     background-color: plum;
 }
-img{
+img
+{
     cursor: pointer;
+}
+a{
+    cursor: pointer;
+}
+a:hover
+{
+    font-style: italic;
 }

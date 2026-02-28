@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "express-fileupload": "^1.5.2",
-    "zone.js": "^0.16.0"
-  }
-}

@@ -1,11 +1,13 @@
  <p>books works!</p> 
 {{errMessage}} 
+<a routerLink="../ex43">New a Book</a>
 <table border="1"> 
     <tr> 
         <td>BookId</td> 
         <td>BookName</td> 
         <td>Price</td> 
         <td>Image</td> 
+        <td>Action: </td> 
     </tr> 
     <tbody> 
         <tr  *ngFor="let book of books"> 
@@ -15,6 +17,11 @@
             <td> 
                 <img src="http://localhost:3000/images/{{book.Image}}" width="50px" height="50px" (click)="viewdetail(book.BookId)"> 
             </td> 
+            <td>
+                <a routerLink="../ex45/{{book.BookId}}"> Update</a>
+                |
+                <a (click)="process_remove(book)"> Delete</a>
+            </td>
         </tr> 
     </tbody> 
 </table> 

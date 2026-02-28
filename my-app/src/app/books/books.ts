@@ -31,4 +31,18 @@ viewdetail(bookId:any)
 {
   this.router.navigate(['ex41', bookId]);
 }
+process_remove(book:any)
+{
+  if (confirm("Are you sure to delete this book [" + book.BookName + "]?")) 
+    {
+      let bookId=book.BookId;
+      this._service.deleteBook(bookId).subscribe({ 
+      next:(data)=>{
+        this.books=data;
+        this.cd.detectChanges();
+      }, 
+      error:(err)=>{this.errMessage=err} 
+    }) 
+    }
+}
 } 

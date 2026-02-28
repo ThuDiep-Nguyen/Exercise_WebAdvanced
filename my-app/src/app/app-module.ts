@@ -41,6 +41,8 @@ import { Ex50 } from './ex50/ex50';
 import { Ex50New } from './ex50/ex50-new/ex50-new';
 import { Ex50Edit } from './ex50/ex50-edit/ex50-edit';
 import { Ex50Detail } from './ex50/ex50-detail/ex50-detail';
+import { BookUpdate } from './book-update/book-update';
+import { Fashion } from './fashion/fashion';
 
 @NgModule({
   declarations: [
@@ -82,6 +84,8 @@ import { Ex50Detail } from './ex50/ex50-detail/ex50-detail';
     Ex50New,
     Ex50Edit,
     Ex50Detail,
+    BookUpdate,
+    Fashion,
     
   ],
   imports: [

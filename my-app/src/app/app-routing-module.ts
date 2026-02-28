@@ -30,6 +30,8 @@ import { Ex50 } from './ex50/ex50';
 import { Ex50New } from './ex50/ex50-new/ex50-new';
 import { Ex50Edit } from './ex50/ex50-edit/ex50-edit';
 import { Ex50Detail } from './ex50/ex50-detail/ex50-detail';
+import { BookUpdate } from './book-update/book-update';
+import { Fashion } from './fashion/fashion';
 
 
 const routes: Routes = [
@@ -63,11 +65,14 @@ const routes: Routes = [
   {path:"ex41",component: BookDetail},
   {path:"ex41/:id",component: BookDetail},
   {path:"ex43",component: NewBook},
+  {path:"ex45",component: BookUpdate},
+  {path:"ex45/:id",component: BookUpdate},
   {path:"ex49",component: FileUpload},
   {path:"ex50",component: Ex50},
   {path:"ex50/new",component: Ex50New},
   {path:"ex50/edit/:id",component: Ex50Edit},
   {path:"ex50/detail/:id",component: Ex50Detail},
+  {path:"ex53",component: Fashion},
   {path:"**",component:Notfound}
 ];
 

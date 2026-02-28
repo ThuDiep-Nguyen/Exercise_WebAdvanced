@@ -83,6 +83,6 @@ app.put("/books",cors(),(req,res)=>{
 }) 
 app.delete("/books/:id",cors(),(req,res)=>{    
     id=req.params["id"] 
-    database=database.filter(x=>x.BookId!=id) 
+    database=database.filter(x=>x.BookId!==id) 
     res.send(database) 
 })
