@@ -28,3 +28,9 @@ app.get("/fashions",cors(),async (req,res)=>{
     const result = await fashionCollection.find({}).toArray(); 
     res.send(result) 
 })
+app.get("/fashions/:id",cors(),async (req,res)=>{ 
+var o_id = new ObjectId(req.params["id"]); 
+const result = await fashionCollection.find({_id:o_id}).toArray();     
+res.send(result[0]) 
+} 
+) 

@@ -43,6 +43,7 @@ import { Ex50Edit } from './ex50/ex50-edit/ex50-edit';
 import { Ex50Detail } from './ex50/ex50-detail/ex50-detail';
 import { BookUpdate } from './book-update/book-update';
 import { Fashion } from './fashion/fashion';
+import { FashionDetail } from './fashion-detail/fashion-detail';
 
 @NgModule({
   declarations: [
@@ -86,6 +87,7 @@ import { Fashion } from './fashion/fashion';
     Ex50Detail,
     BookUpdate,
     Fashion,
+    FashionDetail,
     
   ],
   imports: [
