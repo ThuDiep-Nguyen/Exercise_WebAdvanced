@@ -149,8 +149,10 @@ export class EX10 {
       }
     }
 
-    if (lunarMonth > 12) lunarMonth -= 12;
-    if (lunarMonth > 12) lunarMonth -= 12; // Safety check
+    if (lunarMonth > 12) {
+      lunarMonth -= 12;
+      lunarYear++;
+    }
 
     return { day: lunarDay, month: lunarMonth, year: lunarYear, leap: lunarLeap };
   }

@@ -33,6 +33,10 @@ import { Ex50Detail } from './ex50/ex50-detail/ex50-detail';
 import { BookUpdate } from './book-update/book-update';
 import { Fashion } from './fashion/fashion';
 import { FashionDetail } from './fashion-detail/fashion-detail';
+import { Login } from './login/login';
+import { AuthGuard } from './auth.guard';
+import { Ex63 } from './ex63/ex63';
+import { Ex63cart } from './ex63cart/ex63cart';
 
 
 const routes: Routes = [
@@ -73,9 +77,12 @@ const routes: Routes = [
   {path:"ex50/new",component: Ex50New},
   {path:"ex50/edit/:id",component: Ex50Edit},
   {path:"ex50/detail/:id",component: Ex50Detail},
-  {path:"ex53",component: Fashion},
-  {path:"ex54",component: FashionDetail},
-  {path:"ex54/:id",component: FashionDetail},
+  {path:"login",component: Login},
+  {path:"ex53",component: Fashion, canActivate:[AuthGuard]},
+  {path:"ex54",component: FashionDetail, canActivate:[AuthGuard]},
+  {path:"ex54/:id",component: FashionDetail, canActivate:[AuthGuard]},
+  {path:"ex63",component: Ex63},
+  {path:"ex63cart",component: Ex63cart},
   {path:"**",component:Notfound}
 ];
 

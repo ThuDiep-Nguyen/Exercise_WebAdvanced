@@ -33,7 +33,20 @@ export class FashionApiService {
   retry(3),
   catchError(this.handleError))
   }
-  handleError(error:HttpErrorResponse){
-  return throwError(()=>new Error(error.message))
+  login(user: string, pwd: string): Observable<any> {
+    return this._http.post<any>('http://localhost:3002/login', { user, pwd }).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  register(user: string, pwd: string): Observable<any> {
+    return this._http.post<any>('http://localhost:3002/register', { user, pwd }).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  handleError(error: HttpErrorResponse) {
+    const msg = error.error?.message || error.message || 'An error occurred. Please try again.';
+    return throwError(() => new Error(msg));
   }
 }

@@ -1,0 +1,42 @@
+<div class="shop-container">
+  <div class="shop-header">
+    <h2>Diamond Rings Collection</h2>
+    <button class="btn-cart" (click)="viewCart()">View Cart</button>
+  </div>
+
+  <div *ngIf="errMessage" class="alert-error">{{ errMessage }}</div>
+
+  <!-- Toast popup -->
+  <div class="toast" [class.toast-show]="successMessage">
+    <span class="toast-icon">&#10003;</span>
+    {{ successMessage }}
+  </div>
+
+  <div class="product-grid">
+    <div class="product-card" *ngFor="let product of products">
+      <div class="product-image">
+        <img [src]="parse_image(product.image)" [alt]="product.name" />
+      </div>
+      <div class="product-info">
+        <p class="product-name">{{ product.name }}</p>
+        <div class="product-stars">
+          <span *ngFor="let s of getStars()">★</span>
+        </div>
+        <p class="product-price">${{ product.price | number:'1.2-2' }}</p>
+        <div class="product-actions">
+          <button class="btn-add" (click)="addToCart(product)">ADD TO CART</button>
+          <button class="btn-icon">⊡</button>
+          <button class="btn-icon">♡</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="products.length > 0" class="view-cart-bar">
+    <button class="btn-view-cart" (click)="viewCart()">View Cart</button>
+  </div>
+
+  <div *ngIf="products.length === 0 && !errMessage" class="no-products">
+    Chưa có sản phẩm. Hãy nhấn nút Seed Data để tạo dữ liệu mẫu.
+  </div>
+</div>

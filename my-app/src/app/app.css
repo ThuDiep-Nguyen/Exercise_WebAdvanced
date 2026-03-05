@@ -32,7 +32,10 @@ padding:.3em 6px;
 #container li ul
 {position:absolute;
 display:none;
-width:10em
+width:10em;
+background-color: white;
+z-index: 9999;
+box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
 }
 #container li:hover ul {
  display:block;
